@@ -2,39 +2,43 @@
 
 
 // check if there is data in local storage and effected to the array
-if (localStorage.getItem("tasks")) {
-    allTasks = JSON.parse(localStorage.getItem("tasks"));
-}
+// if (localStorage.getItem("tasks")) {
+//     allTasks = JSON.parse(localStorage.getItem("tasks"));
+// }
 
 // call function
-getDataFromLocalStorage();
+// getDataFromLocalStorage();
 
 // print all tasks from local storage
-function getDataFromLocalStorage() {
-    let data = window.localStorage.getItem("tasks");
-    if (data) {
-        let tasks = JSON.parse(data);
-        printTasks(tasks);
-    }
-}
+// function getDataFromLocalStorage() {
+//     let data = window.localStorage.getItem("tasks");
+//     if (data) {
+//         let tasks = JSON.parse(data);
+//         printTasks(tasks);
+//     }
+// }
 
 // add array of tasks to local storage
-function addDataToLocalStorageFrom(tasks) {
-    window.localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
+// function addDataToLocalStorageFrom(tasks) {
+//     window.localStorage.setItem("tasks", JSON.stringify(tasks));
+// }
+    //call functions
+printTasks(allTasks);
 function printTasks(AllTasks) {
-    // truncate all tasks
-    document.querySelector("#toDo").innerHTML = "";
-    document.querySelector("#inProgress").innerHTML = "";
-    document.querySelector("#done").innerHTML = "";
-    let toDo = document.querySelector("#toDo");
-    let inProgress = document.querySelector("#inProgress");
-    let done = document.querySelector("#done");
 
+    // truncate all tasks
+    let toDo = document.querySelector("#toDo");
+    toDo.innerHTML = "";
+    let inProgress = document.querySelector("#inProgress");
+    inProgress.innerHTML = "";
+    let done = document.querySelector("#done");
+    done.innerHTML = "";
+
+    var number = 1;
     AllTasks.forEach((task) => {
         // AFFICHER TASKS
-        if (task.status === "To do") {
+       
+        if (task.status === "To Do") {
             toDo.innerHTML +=
                 ` <button class="bg-white w-100 d-flex border-0 pb-2">
                   <div class="px-2 text-start mt-3">
@@ -43,7 +47,7 @@ function printTasks(AllTasks) {
                   <div class="text-start mt-2">
                     <div class="h6">${task.title}</div>
                     <div class="text-start">
-                      <div>#1 created ${task.date}</div>
+                      <div>#${number} created ${task.date}</div>
                       <div
                         title="" >
                       ${task.description}
@@ -55,8 +59,8 @@ function printTasks(AllTasks) {
                     </div>
                   </div>
                 </button>`;
-
-        } else if (task.status === "In progress") {
+        }
+         else if (task.status === "In Progress") {
             inProgress.innerHTML +=
                 `<button class="bg-white w-100 d-flex border-0 pb-2">
                 <div class="px-2 text-start mt-3">
@@ -65,7 +69,7 @@ function printTasks(AllTasks) {
                 <div class="text-start mt-2">
                   <div class="h6">${task.title}</div>
                   <div class="text-start">
-                    <div>#1 created ${task.date}</div>
+                    <div># ${number} created ${task.date}</div>
                     <div
                       title="" >
                     ${task.description}
@@ -77,7 +81,10 @@ function printTasks(AllTasks) {
                   </div>
                 </div>
               </button>`;
-        } else if (task.status === "Done") {
+             
+
+        }
+         else if (task.status === "Done") {
             done.innerHTML +=
                 `<button class="bg-white w-100 d-flex border-0 pb-2">
                 <div class="px-2 mt-3 text-start">
@@ -86,7 +93,7 @@ function printTasks(AllTasks) {
                 <div class="text-start mt-2">
                   <div class="h6">${task.title}</div>
                   <div class="text-start">
-                    <div>#1 created ${task.date}</div>
+                    <div># ${number} created ${task.date}</div>
                     <div
                       title="" >
                     ${task.description}
@@ -100,6 +107,7 @@ function printTasks(AllTasks) {
               </button>`;
         }
 
+        number++;
     });
 }
 
