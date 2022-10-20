@@ -40,8 +40,13 @@ function printTasks(AllTasks) {
   inProgress.innerHTML = "";
   let done = document.querySelector("#done");
   done.innerHTML = "";
-  var number = document.querySelector("#taskcount");
-  var taskCount = 0;
+
+  let number = 1;
+  let taskCount = 0;
+
+  let todoCount = 0;
+  let inprogressCount = 0;
+  let doneCount =0;
 
   AllTasks.forEach((task) => {
     // AFFICHER TASKS
@@ -68,6 +73,7 @@ function printTasks(AllTasks) {
                   </div>
                 </button>`;
       taskCount++;
+      todoCount++;
 
     }
     else if (task.status === "In Progress") {
@@ -94,6 +100,7 @@ function printTasks(AllTasks) {
                 </div>
               </button>`;
       taskCount++;
+      inprogressCount++;
 
     }
     else if (task.status === "Done") {
@@ -120,12 +127,19 @@ function printTasks(AllTasks) {
                 </div>
               </button>`;
       taskCount++;
+      doneCount++;
     }
 
     number++;
   });
-}
 
+  document.querySelector("#todoCount").innerHTML=todoCount;
+  // let num = document.querySelector("#todoCount")
+  // num.innerHTML=todoCount;
+  document.querySelector("#inprogressCount").innerHTML=inprogressCount;
+  document.querySelector("#doneCount").innerHTML=doneCount;
+  console.log(todoCount);
+}
 
 
 var form = document.getElementById("form");
