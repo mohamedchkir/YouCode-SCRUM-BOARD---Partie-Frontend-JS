@@ -9,3 +9,18 @@
     background-position: right bottom;
 }
 
+.icon{
+    top: 9px;
+    right: 9px;
+    position: absolute; 
+    color: red;
+}
+.icon2{
+    top: 9px;
+    right: 33px;
+    position: absolute;
+    color: #32a932;
+}
+.Task{
+    position: relative;
+}
