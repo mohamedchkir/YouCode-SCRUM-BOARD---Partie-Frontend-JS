@@ -9,13 +9,15 @@
     background-position: right bottom;
 }
 
-.icon{
+.icon {
+    visibility: hidden;
     top: 9px;
     right: 9px;
     position: absolute; 
     color: red;
 }
 .icon1{
+    visibility: hidden;
     top: 9px;
     right: 33px;
     position: absolute;
@@ -23,4 +25,16 @@
 }
 .Task{
     position: relative;
+}
+
+.Task:hover .icon, .Task:hover .icon1{
+    visibility: visible;
+}
+
+#add_task:hover{
+    background-color: rgb(27, 183, 255);
+    transform: scale(1.3);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 0cm;
+    
 }
