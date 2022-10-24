@@ -18,11 +18,12 @@
 }
 .icon1{
     visibility: hidden;
-    top: 9px;
-    right: 33px;
+    top: 30px;
+    right: 7px;
     position: absolute;
     color: #32a932;
 }
+
 .Task{
     position: relative;
 }
@@ -36,5 +37,4 @@
     transform: scale(1.3);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border: 0cm;
-    
 }
